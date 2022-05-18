@@ -30,7 +30,7 @@ struct SettingOption {
     let icon: UIImage?
     let iconBackgroundColor: UIColor
     let handler: (() -> Void)
-
+    
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -39,11 +39,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingTableViewCell.self,
                        forCellReuseIdentifier: SettingTableViewCell.identifier)
+        table.register(SwitchTableViewCell.self,
+                       forCellReuseIdentifier: SwitchTableViewCell.identifier)
         return table
     }()
     
     var models = [Section]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -55,33 +57,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configure() {
+        models.append(Section(title: "", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane.circle"), iconBackgroundColor: .red , handler: {
+                        print("Airplane Mode")
+                    }, isOn: true )),
+            
+        ]))
+        
         models.append(Section(title: "General", options: [
-            .staticCell(model: SettingOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange) {
-                print("Tipped first cell")
-            }),
-            .staticCell(model:SettingOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemBlue) {
-                
-            }),
-            .staticCell(model: SettingOption(title: "Bluetooth", icon: UIImage(systemName: "shuffle"), iconBackgroundColor: .systemBlue) {
-                print("Tipped Bluetuth")
-            }),
-            .staticCell(model:SettingOption(title: "Cellular communication", icon: UIImage(systemName: "phone"), iconBackgroundColor: .systemGreen) {
-                
-            }),
-            .staticCell(model:SettingOption(title: "Modem mode", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor: .systemGreen) {
-                
-            }),
-            .staticCell(model:SettingOption(title: "VPN", icon: UIImage(systemName: "move.3d"), iconBackgroundColor: .systemBlue) {
-                
-            })
+            .staticCell(model: SettingOption(title: "Wi-Fi", icon: UIImage(systemName: "speaker.fill"), iconBackgroundColor:
+                    .systemPink) {
+                        print("Wi-Fi")
+                    }),
+            .staticCell(model: SettingOption(title: "Bluetooth", icon: UIImage(systemName: "shuffle"), iconBackgroundColor:
+                    .systemBlue) {
+                        print("Bluetooth")
+                    }),
+            .staticCell(model:SettingOption(title: "Cellular communication", icon: UIImage(systemName: "phone.connection"), iconBackgroundColor:
+                    .systemPurple) {
+                        print("Cellular communication")
+                    })
+            
+        ]))
+        
+        models.append(Section(title: "", options: [
+            .switchCell(model:SettingsSwitchOption(title: "Modem mode", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor:
+                    .systemGreen, handler: {
+                        print("Airplane Mode")
+                    }, isOn: true )),
+            
         ]))
         
         models.append(Section(title: "Information", options: [
             .staticCell(model: SettingOption(title: "Notifications", icon: UIImage(systemName: "speaker.fill"), iconBackgroundColor: .systemPink) {
-                print("Tipped first cell")
+                print("Notifications")
             }),
             .staticCell(model: SettingOption(title: "Sounds screen time", icon: UIImage(systemName: "bell"), iconBackgroundColor: .systemRed) {
-                print("Tipped Bluetuth")
+                print("Sounds screen time")
             }),
             .staticCell(model:SettingOption(title: "Focusing", icon: UIImage(systemName: "bolt"), iconBackgroundColor: .systemPurple) {
                 
@@ -93,10 +105,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         models.append(Section(title: "Basic", options: [
             .staticCell(model: SettingOption(title: "Basic", icon: UIImage(systemName: "brain"), iconBackgroundColor: .systemGray) {
-                print("Tipped first cell")
+                print("Basic")
             }),
             .staticCell(model: SettingOption(title: "Control point", icon: UIImage(systemName: "control"), iconBackgroundColor: .systemGray) {
-                print("Tipped Bluetuth")
+                print("Control point")
             }),
             .staticCell(model:SettingOption(title: "Screen and brightness", icon: UIImage(systemName: "bell"), iconBackgroundColor: .systemBlue) {
                 
@@ -119,7 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].options.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         
@@ -134,7 +146,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.configure(with: model)
             return cell
         case .switchCell(let model):
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
+            ) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
             
         }
     }

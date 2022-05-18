@@ -1,14 +1,14 @@
 //
-//  SettingTableViewCell.swift
+//  SwitchTableViewCell.swift
 //  Setting-Abramov-Pavel-iOs-5-HW13
 //
-//  Created by Pavel Абрамов on 16.05.2022.
+//  Created by Pavel Абрамов on 18.05.2022.
 //
 
 import UIKit
 
-class SettingTableViewCell: UITableViewCell {
-    static let identifier = "SetingtableViewCell"
+class SwitchTableViewCell: UITableViewCell {
+    static let identifier = "SwitchTableViewCell"
     
     private let iconContainer: UIView = {
         let view = UIView()
@@ -31,13 +31,20 @@ class SettingTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let mySwitch: UISwitch = {
+        let mySwitch = UISwitch()
+        mySwitch.onTintColor = .systemBlue
+        return mySwitch
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.addSubview(iconContainer)
-        contentView.addSubview(iconImageView)
-        iconContainer.clipsToBounds = true
-        accessoryType = .disclosureIndicator
+        contentView.addSubview(mySwitch)
+        
+        contentView.clipsToBounds = true
+        accessoryType = .none
     }
     required init?(coder: NSCoder) {
         fatalError()
@@ -50,12 +57,20 @@ class SettingTableViewCell: UITableViewCell {
         
         let imageSize: CGFloat = size/1.5
         iconImageView.frame = CGRect(x: (size-imageSize)/2, y: 0, width: imageSize, height: imageSize)
-        iconImageView.center = iconContainer.center
         
-        label.frame = CGRect(x: 25 + iconContainer.frame.size.width,
-                             y: 0,
-                             width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
-                             height: contentView.frame.size.height)
+        
+        mySwitch.sizeToFit()
+        mySwitch.frame = CGRect(
+            x: contentView.frame.size.width - mySwitch.frame.size.width - 20,
+            y: ( contentView.frame.size.height - mySwitch.frame.size.height)/2,
+            width: mySwitch.frame.size.width,
+            height: mySwitch.frame.size.height)
+        
+        label.frame = CGRect(
+            x: 25 + iconContainer.frame.size.width,
+            y: 0,
+            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+            height: contentView.frame.size.height)
         
     }
     
@@ -64,11 +79,13 @@ class SettingTableViewCell: UITableViewCell {
         iconImageView.image = nil
         label.text = nil
         iconContainer.backgroundColor = nil
+        mySwitch.isOn = false
     }
     
-    public func configure(with model: SettingOption) {
+    public func configure(with model: SettingsSwitchOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
+        mySwitch.isOn = model.isOn
     }
 }

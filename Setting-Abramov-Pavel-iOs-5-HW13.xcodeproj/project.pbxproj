@@ -15,6 +15,7 @@
 		126C91A228321B290020E120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126C91A128321B290020E120 /* Assets.xcassets */; };
 		126C91A528321B290020E120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126C91A328321B290020E120 /* LaunchScreen.storyboard */; };
 		126C91AF2832B8290020E120 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C91AE2832B8280020E120 /* SettingTableViewCell.swift */; };
+		12A2FA402834E93000DA0067 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2FA3F2834E93000DA0067 /* SwitchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		126C91A428321B290020E120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126C91A628321B290020E120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		126C91AE2832B8280020E120 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		12A2FA3F2834E93000DA0067 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,9 @@
 				126C91A128321B290020E120 /* Assets.xcassets */,
 				126C91A328321B290020E120 /* LaunchScreen.storyboard */,
 				126C91A628321B290020E120 /* Info.plist */,
-				126C919E28321B140020E120 /* Setting_Abramov_Pavel_iOs_5_HW13.xcdatamodeld */,
 				126C91AE2832B8280020E120 /* SettingTableViewCell.swift */,
+				12A2FA3F2834E93000DA0067 /* SwitchTableViewCell.swift */,
+				126C919E28321B140020E120 /* Setting_Abramov_Pavel_iOs_5_HW13.xcdatamodeld */,
 			);
 			path = "Setting-Abramov-Pavel-iOs-5-HW13";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				126C91A028321B140020E120 /* Setting_Abramov_Pavel_iOs_5_HW13.xcdatamodeld in Sources */,
 				126C919628321B140020E120 /* AppDelegate.swift in Sources */,
 				126C919828321B140020E120 /* SceneDelegate.swift in Sources */,
+				12A2FA402834E93000DA0067 /* SwitchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
