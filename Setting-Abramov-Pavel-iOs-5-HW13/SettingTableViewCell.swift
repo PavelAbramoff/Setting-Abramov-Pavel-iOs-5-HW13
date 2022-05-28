@@ -10,6 +10,8 @@ import UIKit
 class SettingTableViewCell: UITableViewCell {
     static let identifier = "SetingtableViewCell"
     
+    
+    
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true

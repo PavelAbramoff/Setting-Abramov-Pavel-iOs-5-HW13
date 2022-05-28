@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		125F6711283A905E0045787A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125F6710283A905D0045787A /* Model.swift */; };
 		126C919628321B140020E120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C919528321B140020E120 /* AppDelegate.swift */; };
 		126C919828321B140020E120 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C919728321B140020E120 /* SceneDelegate.swift */; };
 		126C919A28321B140020E120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C919928321B140020E120 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		125F6710283A905D0045787A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		126C919228321B140020E120 /* Setting-Abramov-Pavel-iOs-5-HW13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Setting-Abramov-Pavel-iOs-5-HW13.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		126C919528321B140020E120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126C919728321B140020E120 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				126C919528321B140020E120 /* AppDelegate.swift */,
 				126C919728321B140020E120 /* SceneDelegate.swift */,
+				125F6710283A905D0045787A /* Model.swift */,
 				126C919928321B140020E120 /* ViewController.swift */,
 				126C919B28321B140020E120 /* Main.storyboard */,
 				126C91A128321B290020E120 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				125F6711283A905E0045787A /* Model.swift in Sources */,
 				126C919A28321B140020E120 /* ViewController.swift in Sources */,
 				126C91AF2832B8290020E120 /* SettingTableViewCell.swift in Sources */,
 				126C91A028321B140020E120 /* Setting_Abramov_Pavel_iOs_5_HW13.xcdatamodeld in Sources */,
@@ -307,6 +311,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,6 +340,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
