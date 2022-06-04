@@ -40,7 +40,6 @@ struct Model {
                 .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane.circle"), iconBackgroundColor: .red , handler: {
                     print("Airplane Mode")
                 }, isOn: true )),
-                
             ]),
             
             Section(title: "General", options: [
@@ -56,16 +55,14 @@ struct Model {
                                                         .systemPurple) {
                                                             print("Cellular communication")
                                                         })
-                
-            ]),
+                ]),
             
             Section(title: "", options: [
                 .switchCell(model:SettingsSwitchOption(title: "Modem mode", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor:
                                                             .systemGreen, handler: {
                                                                 print("Airplane Mode")
                                                             }, isOn: true )),
-                
-            ]),
+                ]),
             
             Section(title: "Information", options: [
                 .staticCell(model: SettingOption(title: "Notifications", icon: UIImage(systemName: "speaker.fill"), iconBackgroundColor: .systemPink) {
@@ -95,8 +92,7 @@ struct Model {
                 .staticCell(model:SettingOption(title: "Wallpaper", icon: UIImage(systemName: "square.and.arrow.down"), iconBackgroundColor: .systemPurple) {
                     
                 })
-            ])
-        ]
+            ])]
     }
 }
 

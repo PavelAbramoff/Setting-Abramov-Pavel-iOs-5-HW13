@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let tableView: UITableView = {
@@ -31,18 +30,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.frame = view.bounds
     }
     
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int ) -> String?  {
-        let section = model[section]
-        return section.title
+        let sectionTitle = model[section].title
+        return sectionTitle
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return model.count
+        model.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model[section].options.count
+        model[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +65,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             cell.configure(with: model)
             return cell
-            
         }
     }
     
@@ -79,9 +76,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             model.handler()
         case .switchCell(let model):
             model.handler()
-            
         }
     }
 }
-
-
